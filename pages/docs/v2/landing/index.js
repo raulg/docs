@@ -122,6 +122,15 @@ function Landing() {
             </div>
           </div>
         </section>
+        <section className="case-studies-section">
+          <h2 className="subheading">
+            Helping Out Customers Be the Best
+            <br className="desktop-only" /> at What They Do.
+          </h2>
+          <div className="case-study-cards">
+            <div className="case-study-card" />
+          </div>
+        </section>
       </main>
       <style jsx>{`
         .hero-section {
@@ -155,7 +164,33 @@ function Landing() {
           grid-column-gap: 100px;
           margin-right: 100px;
         }
+        .case-studies-section {
+          margin-top: -150px;
+          height: 700px;
+          background-color: rgba(250, 250, 250);
+        }
+        .case-studies-section .subheading {
+          text-align: center;
+          padding-top: 100px;
+        }
+        .case-study-cards {
+          margin-top: 50px;
+          padding-bottom: 200px;
+          position: relative;
+        }
+        .case-study-card {
+          width: 530px;
+          height: 335px;
+          border-radius: 4px;
+          box-shadow: 0px 16px 48px rgba(0, 0, 0, 0.12);
+          position: absolute;
+          left: 50%;
+          transform: translate(-50%);
+        }
         @media (max-width: 640px) {
+          .desktop-only {
+            display: none;
+          }
           .docs-navigation-wrapper {
             flex-direction: column;
             align-items: flex-start;
@@ -166,6 +201,14 @@ function Landing() {
             flex-direction: column;
             align-items: flex-start;
             margin-right: 0;
+          }
+          .case-studies-section .subheading {
+            padding-left: 50px;
+            padding-right: 50px;
+          }
+          .case-study-card {
+            width: 300px;
+            height: 250px;
           }
         }
       `}</style>
