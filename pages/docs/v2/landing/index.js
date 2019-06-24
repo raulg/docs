@@ -131,6 +131,43 @@ function Landing() {
             <div className="case-study-card" />
           </div>
         </section>
+        <section className="support-section">
+          <div className="priority-support-card" />
+          <div className="support-check-list">
+            <h4>All support plans include</h4>
+            <ul>
+              <li>Live Chat</li>
+              <li>Priority Queuing</li>
+              <li>Urgent Tickets</li>
+            </ul>
+            <Button bgColor="#007aff" width="fit-content">
+              View Plans
+            </Button>
+          </div>
+        </section>
+        <section className="extra-resources-section">
+          <div>
+            <h4>Resources</h4>
+            <p>
+              Explore our docs and step-by-step guides to get familiar with our
+              products and their features. Learn More.
+            </p>
+          </div>
+          <div>
+            <h4>Community</h4>
+            <p>
+              Tap into a wealth of knowledge with thousands of community members
+              contributing. Join us on Spectrum.
+            </p>
+          </div>
+          <div>
+            <h4>Open Source</h4>
+            <p>
+              Search our repositories, open issues and contribute to our
+              documentation. Fork us on GitHub.
+            </p>
+          </div>
+        </section>
       </main>
       <style jsx>{`
         .hero-section {
@@ -187,6 +224,38 @@ function Landing() {
           left: 50%;
           transform: translate(-50%);
         }
+        .support-section {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          max-width: 1000px;
+          margin: 0 auto;
+          padding: 150px 0;
+          border-bottom: 1px solid #eaeaea;
+        }
+        .priority-support-card {
+          width: 528px;
+          height: 310px;
+          border-radius: 4px;
+          background-color: #ffffff;
+          box-shadow: 0px 16px 48px rgba(0, 0, 0, 0.12);
+        }
+        .support-check-list {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          height: 200px;
+          margin-left: 100px;
+        }
+        .extra-resources-section {
+          display: flex;
+          max-width: 1000px;
+          justify-content: space-between;
+          margin: 100px auto;
+        }
+        .extra-resources-section > div {
+          width: 300px;
+        }
         @media (max-width: 640px) {
           .desktop-only {
             display: none;
@@ -194,7 +263,7 @@ function Landing() {
           .docs-navigation-wrapper {
             flex-direction: column;
             align-items: flex-start;
-            margin-left: 100px;
+            margin-left: 35px;
           }
           .docs-navigation-wrapper > .navigation-left {
             display: flex;
@@ -209,6 +278,21 @@ function Landing() {
           .case-study-card {
             width: 300px;
             height: 250px;
+          }
+          .support-section {
+            flex-direction: column;
+          }
+          .priority-support-card {
+            width: 300px;
+            height: 250px;
+          }
+          .support-check-list {
+            margin-left: 0;
+            margin-top: 50px;
+          }
+          .extra-resources-section {
+            flex-direction: column;
+            align-items: center;
           }
         }
       `}</style>
