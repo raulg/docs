@@ -55,6 +55,73 @@ function Landing() {
             </Button>
           </div>
         </section>
+        <section className="docs-navigation-section">
+          <div className="docs-navigation-wrapper">
+            <div className="navigation-left">
+              <div>
+                <h4>Platform</h4>
+                <p>Overview</p>
+                <p>Overview</p>
+                <p>Overview</p>
+                <p>Overview</p>
+                <p>Overview</p>
+                <p>Overview</p>
+                <p>Overview</p>
+                <p>Overview</p>
+              </div>
+              <div>
+                <h4>Cloud Deployment</h4>
+                <p>Overview</p>
+                <p>Overview</p>
+                <p>Overview</p>
+                <p>Overview</p>
+                <p>Overview</p>
+                <p>Overview</p>
+                <p>Overview</p>
+                <p>Overview</p>
+              </div>
+              <div>
+                <h4>Routing</h4>
+                <p>Overview</p>
+                <p>Overview</p>
+                <p>Overview</p>
+                <p>Overview</p>
+                <p>Overview</p>
+                <p>Overview</p>
+                <p>Overview</p>
+                <p>Overview</p>
+              </div>
+              <div>
+                <h4>Getting Started</h4>
+                <p>Overview</p>
+                <p>Overview</p>
+              </div>
+              <div>
+                <h4>Local Development</h4>
+                <p>Overview</p>
+                <p>Overview</p>
+                <p>Overview</p>
+              </div>
+              <div>
+                <h4>Integrations</h4>
+                <p>Overview</p>
+                <p>Overview</p>
+              </div>
+            </div>
+            <div className="navigation-right">
+              <h4>Domains and Aliases</h4>
+              <p>Overview</p>
+              <p>Overview</p>
+              <p>Overview</p>
+              <p>Overview</p>
+              <p>Overview</p>
+              <p>Overview</p>
+              <p>Overview</p>
+              <p>Overview</p>
+              <p>Overview</p>
+            </div>
+          </div>
+        </section>
       </main>
       <style jsx>{`
         .hero-section {
@@ -74,6 +141,32 @@ function Landing() {
           bottom: -20px;
           left: 50%;
           transform: translate(-50%);
+        }
+        .docs-navigation-wrapper {
+          display: flex;
+          justify-content: center;
+          max-width: 1000px;
+          margin: 100px auto;
+        }
+        .docs-navigation-wrapper > .navigation-left {
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr;
+          grid-template-rows: 1fr 1fr;
+          grid-column-gap: 100px;
+          margin-right: 100px;
+        }
+        @media (max-width: 640px) {
+          .docs-navigation-wrapper {
+            flex-direction: column;
+            align-items: flex-start;
+            margin-left: 100px;
+          }
+          .docs-navigation-wrapper > .navigation-left {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-right: 0;
+          }
         }
       `}</style>
     </Layout>
