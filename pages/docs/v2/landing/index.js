@@ -1,10 +1,13 @@
+import { useEffect } from 'react'
 import { useAmp } from 'next/amp'
 import { useRouter } from 'next/amp'
+import Link from 'next/link'
 import algoliasearch from 'algoliasearch/lite'
 import { InstantSearch, Configure } from 'react-instantsearch-dom'
-import AutoComplete from '../../../../components/search'
-import Layout from '../../../../components/layout/layout'
-import Button from '../../../../components/buttons'
+import AutoComplete from '~/components/search'
+import Layout from '~/components/layout/layout'
+import Button from '~/components/buttons'
+import data from '~/lib/data/v2/docs'
 
 function getAlgoliaClient() {
   const algoliaClient = algoliasearch(
@@ -38,6 +41,9 @@ function getAlgoliaClient() {
 const searchClient = getAlgoliaClient()
 
 function Landing() {
+  useEffect(() => {
+    console.log(data)
+  })
   return (
     <Layout>
       <main>
@@ -59,66 +65,68 @@ function Landing() {
           <div className="docs-navigation-wrapper">
             <div className="navigation-left">
               <div>
-                <h4>Platform</h4>
-                <p>Overview</p>
-                <p>Overview</p>
-                <p>Overview</p>
-                <p>Overview</p>
-                <p>Overview</p>
-                <p>Overview</p>
-                <p>Overview</p>
-                <p>Overview</p>
+                {/* Platform */}
+                <h4>{data[4].name}</h4>
+                {data[4].posts.map(p => (
+                  <Link href={p.href}>
+                    <p key={p.name}>{p.name}</p>
+                  </Link>
+                ))}
               </div>
               <div>
-                <h4>Cloud Deployment</h4>
-                <p>Overview</p>
-                <p>Overview</p>
-                <p>Overview</p>
-                <p>Overview</p>
-                <p>Overview</p>
-                <p>Overview</p>
-                <p>Overview</p>
-                <p>Overview</p>
+                {/* Cloud Deployment */}
+                <h4>{data[2].name}</h4>
+                {data[2].posts.map(p => (
+                  <Link href={p.href}>
+                    <p key={p.name}>{p.name}</p>
+                  </Link>
+                ))}
               </div>
               <div>
-                <h4>Routing</h4>
-                <p>Overview</p>
-                <p>Overview</p>
-                <p>Overview</p>
-                <p>Overview</p>
-                <p>Overview</p>
-                <p>Overview</p>
-                <p>Overview</p>
-                <p>Overview</p>
+                {/* Routing */}
+                <h4>{data[5].name}</h4>
+                {data[5].posts.map(p => (
+                  <Link href={p.href}>
+                    <p key={p.name}>{p.name}</p>
+                  </Link>
+                ))}
               </div>
               <div>
-                <h4>Getting Started</h4>
-                <p>Overview</p>
-                <p>Overview</p>
+                {/* Getting Started */}
+                <h4>{data[0].name}</h4>
+                {data[0].posts.map(p => (
+                  <Link href={p.href}>
+                    <p key={p.name}>{p.name}</p>
+                  </Link>
+                ))}
               </div>
               <div>
-                <h4>Local Development</h4>
-                <p>Overview</p>
-                <p>Overview</p>
-                <p>Overview</p>
+                {/* Local Development */}
+                <h4>{data[1].name}</h4>
+                {data[1].posts.map(p => (
+                  <Link href={p.href}>
+                    <p key={p.name}>{p.name}</p>
+                  </Link>
+                ))}
               </div>
               <div>
-                <h4>Integrations</h4>
-                <p>Overview</p>
-                <p>Overview</p>
+                {/* Integrations */}
+                <h4>{data[6].name}</h4>
+                {data[6].posts.map(p => (
+                  <Link href={p.href}>
+                    <p key={p.name}>{p.name}</p>
+                  </Link>
+                ))}
               </div>
             </div>
             <div className="navigation-right">
-              <h4>Domains and Aliases</h4>
-              <p>Overview</p>
-              <p>Overview</p>
-              <p>Overview</p>
-              <p>Overview</p>
-              <p>Overview</p>
-              <p>Overview</p>
-              <p>Overview</p>
-              <p>Overview</p>
-              <p>Overview</p>
+              {/* Domains and Aliases */}
+              <h4>{data[3].name}</h4>
+              {data[3].posts.map(p => (
+                <Link href={p.href}>
+                  <p key={p.name}>{p.name}</p>
+                </Link>
+              ))}
             </div>
           </div>
         </section>
