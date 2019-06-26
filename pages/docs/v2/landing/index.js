@@ -5,6 +5,7 @@ import Link from 'next/link'
 import algoliasearch from 'algoliasearch/lite'
 import { InstantSearch, Configure } from 'react-instantsearch-dom'
 
+import Community from '~/components/icons/community'
 import CheckmarkInCircle from '~/components/icons/checkmark-in-circle'
 import DocsNavbarDesktop from '~/components/layout/navbar/desktop'
 import AutoComplete from '~/components/search'
@@ -151,7 +152,14 @@ function Landing() {
           </div>
         </section>
         <section className="support-section">
-          <div className="priority-support-card" />
+          <div className="priority-support-card">
+            <Community animate={true} />
+            <h2>Priority Support</h2>
+            <p>
+              Whether you are just getting started or operating at scale, our
+              plans include options to help you make the most of our platform
+            </p>
+          </div>
           <div className="support-check-list">
             <h4>All support plans include</h4>
             <ul>
@@ -268,6 +276,7 @@ function Landing() {
           border-bottom: 1px solid #eaeaea;
         }
         .priority-support-card {
+          padding: 50px;
           width: 528px;
           height: 310px;
           border-radius: 4px;
