@@ -5,6 +5,7 @@ import Link from 'next/link'
 import algoliasearch from 'algoliasearch/lite'
 import { InstantSearch, Configure } from 'react-instantsearch-dom'
 
+import CheckmarkInCircle from '~/components/icons/checkmark-in-circle'
 import DocsNavbarDesktop from '~/components/layout/navbar/desktop'
 import AutoComplete from '~/components/search'
 import Layout from '~/components/layout/layout'
@@ -154,9 +155,24 @@ function Landing() {
           <div className="support-check-list">
             <h4>All support plans include</h4>
             <ul>
-              <li>Live Chat</li>
-              <li>Priority Queuing</li>
-              <li>Urgent Tickets</li>
+              <li>
+                <div className="bullet-container">
+                  <CheckmarkInCircle />
+                  <span>Live Chat</span>
+                </div>
+              </li>
+              <li>
+                <div className="bullet-container">
+                  <CheckmarkInCircle />
+                  <span>Priority Queuing</span>
+                </div>
+              </li>
+              <li>
+                <div className="bullet-container">
+                  <CheckmarkInCircle />
+                  <span>Urgent Tickets</span>
+                </div>
+              </li>
             </ul>
             <Button bgColor="#007aff" width="fit-content">
               View Plans
@@ -264,6 +280,21 @@ function Landing() {
           justify-content: space-between;
           height: 200px;
           margin-left: 100px;
+        }
+        .bullet-container {
+          display: flex;
+          align-items: center;
+        }
+        .support-check-list li {
+          list-style: none;
+          margin-left: -20px;
+          margin-bottom: 10px;
+        }
+        .support-check-list li:last-child {
+          margin-bottom: 0;
+        }
+        .support-check-list span {
+          margin-left: 15px;
         }
         .extra-resources-section {
           display: flex;
