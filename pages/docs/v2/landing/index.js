@@ -1,9 +1,11 @@
 import { useEffect } from 'react'
 import { useAmp } from 'next/amp'
-import { useRouter } from 'next/amp'
+import { useRouter } from 'next/router'
 import Link from 'next/link'
 import algoliasearch from 'algoliasearch/lite'
 import { InstantSearch, Configure } from 'react-instantsearch-dom'
+
+import DocsNavbarDesktop from '~/components/layout/navbar/desktop'
 import AutoComplete from '~/components/search'
 import Layout from '~/components/layout/layout'
 import Button from '~/components/buttons'
@@ -41,6 +43,7 @@ function getAlgoliaClient() {
 const searchClient = getAlgoliaClient()
 
 function Landing() {
+  const router = useRouter()
   useEffect(() => {
     console.log(data)
   })
@@ -62,7 +65,14 @@ function Landing() {
           </div>
         </section>
         <section className="docs-navigation-section">
-          <div className="docs-navigation-wrapper">
+          <div className="docs-navigation-wrapper mobile-only">
+            <DocsNavbarDesktop
+              data={data}
+              url={router}
+              scrollSelectedIntoView={true}
+            />
+          </div>
+          <div className="docs-navigation-wrapper desktop-only">
             <div className="navigation-left">
               <div>
                 {/* Platform */}
@@ -264,9 +274,18 @@ function Landing() {
         .extra-resources-section > div {
           width: 300px;
         }
+        .mobile-only {
+          display: none;
+        }
         @media (max-width: 640px) {
+          .mobile-only {
+            display: block;
+          }
           .desktop-only {
             display: none;
+          }
+          .docs-navigation-section {
+            height: 400px;
           }
           .docs-navigation-wrapper {
             flex-direction: column;
