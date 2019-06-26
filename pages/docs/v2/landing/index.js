@@ -5,6 +5,9 @@ import Link from 'next/link'
 import algoliasearch from 'algoliasearch/lite'
 import { InstantSearch, Configure } from 'react-instantsearch-dom'
 
+import Box from '~/components/icons/box'
+import Message from '~/components/icons/message'
+import GitHub from '~/components/icons/github-no-fill'
 import Community from '~/components/icons/community'
 import CheckmarkInCircle from '~/components/icons/checkmark-in-circle'
 import DocsNavbarDesktop from '~/components/layout/navbar/desktop'
@@ -189,21 +192,30 @@ function Landing() {
         </section>
         <section className="extra-resources-section">
           <div>
-            <h4>Resources</h4>
+            <div className="icon-with-header">
+              <Box />
+              <h4>Resources</h4>
+            </div>
             <p>
               Explore our docs and step-by-step guides to get familiar with our
               products and their features. Learn More.
             </p>
           </div>
           <div>
-            <h4>Community</h4>
+            <div className="icon-with-header">
+              <Message />
+              <h4>Community</h4>
+            </div>
             <p>
               Tap into a wealth of knowledge with thousands of community members
               contributing. Join us on Spectrum.
             </p>
           </div>
           <div>
-            <h4>Open Source</h4>
+            <div className="icon-with-header">
+              <GitHub />
+              <h4>Open Source</h4>
+            </div>
             <p>
               Search our repositories, open issues and contribute to our
               documentation. Fork us on GitHub.
@@ -316,6 +328,13 @@ function Landing() {
         }
         .mobile-only {
           display: none;
+        }
+        .icon-with-header {
+          display: flex;
+          align-items: center;
+        }
+        .icon-with-header h4 {
+          margin-left: 15px;
         }
         @media (max-width: 640px) {
           .mobile-only {
