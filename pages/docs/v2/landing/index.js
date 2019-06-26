@@ -285,7 +285,8 @@ function Landing() {
             display: none;
           }
           .docs-navigation-section {
-            height: 400px;
+            min-height: 400px;
+            padding-bottom: 50px;
           }
           .docs-navigation-wrapper {
             flex-direction: column;
