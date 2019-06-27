@@ -161,9 +161,10 @@ function Landing() {
             <br className="desktop-only" /> at What They Do.
           </h2>
           <div className="case-study-cards">
-            <CaseStudyCard description="Fitt cut their cloud services costs by 96% while doubling their page load speeds.">
-              <Fitt />
-            </CaseStudyCard>
+            <CaseStudyCard
+              icon={Fitt}
+              description="Fitt cut their cloud services costs by 96% while doubling their page load speeds."
+            />
           </div>
         </section>
         <section className="support-section">

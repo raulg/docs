@@ -1,10 +1,11 @@
 import { memo } from 'react'
 import { AnchorLink } from '~/components/text/link'
 
-function CaseStudyCard({ children, description, href }) {
+function CaseStudyCard({ icon, description, href }) {
+  const Icon = icon
   return (
     <div className="case-study-card-container">
-      <div className="icon">{children}</div>
+      <Icon />
       <p>{description}</p>
       <AnchorLink>Read case study</AnchorLink>
       <style jsx>{`
