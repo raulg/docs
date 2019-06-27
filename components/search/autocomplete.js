@@ -142,9 +142,9 @@ class AutoComplete extends Component {
           .search__search-icon svg {
             fill: #999999;
             position: absolute;
-            left: 20px;
+            left: 200px;
             z-index: 3;
-            top: 11px;
+            top: 20px;
             transition: fill 0.15s ease;
           }
 
@@ -204,6 +204,7 @@ class AutoComplete extends Component {
           }
 
           .react-autosuggest__input {
+            text-align: center;
             width: 500px;
             height: 50px;
             padding: 16px 24px 16px 28px;
@@ -295,6 +296,9 @@ class AutoComplete extends Component {
               left: 50%;
               transform: translate(-50%);
               width: 300px;
+            }
+            .search__search-icon svg {
+              left: 100px;
             }
           }
         `}</style>
