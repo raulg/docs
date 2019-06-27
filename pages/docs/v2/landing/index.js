@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { useAmp } from 'next/amp'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
@@ -49,18 +49,26 @@ const searchClient = getAlgoliaClient()
 
 function Landing() {
   const router = useRouter()
-  useEffect(() => {
-    console.log(data)
-  })
+  const [searchState, setSearchState] = useState({})
   return (
     <Layout>
       <main>
         <section className="hero-section">
           <h1>Docs</h1>
           <div className="desktop-search">
-            <InstantSearch indexName="prod_docs" searchClient={searchClient}>
+            <InstantSearch
+              indexName="prod_docs"
+              searchClient={searchClient}
+              searchState={searchState}
+              onSearchStateChange={newSearchState =>
+                setSearchState(newSearchState)
+              }
+            >
               <Configure hitsPerPage={8} />
-              <AutoComplete />
+              <AutoComplete
+                onSuggestionSelected={console.log}
+                onSuggestionCleared={console.log}
+              />
             </InstantSearch>
           </div>
           <div className="get-started-cta">

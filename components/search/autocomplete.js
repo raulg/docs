@@ -204,8 +204,8 @@ class AutoComplete extends Component {
           }
 
           .react-autosuggest__input {
-            width: 240px;
-            height: 30px;
+            width: 500px;
+            height: 50px;
             padding: 16px 24px 16px 28px;
             font-size: 14px;
             border: 1px solid transparent;
@@ -288,12 +288,12 @@ class AutoComplete extends Component {
           @media screen and (max-width: 950px) {
             .react-autosuggest__input {
               font-size: 16px;
-              width: 100%;
+              width: 300px;
             }
 
             .react-autosuggest__suggestions-container--open {
-              right: 0;
-              left: -30px;
+              left: 50%;
+              transform: translate(-50%);
               width: 300px;
             }
           }
