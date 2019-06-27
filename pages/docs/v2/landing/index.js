@@ -5,10 +5,12 @@ import Link from 'next/link'
 import algoliasearch from 'algoliasearch/lite'
 import { InstantSearch, Configure } from 'react-instantsearch-dom'
 
+import Fitt from '~/components/icons/fitt'
 import Box from '~/components/icons/box'
 import Message from '~/components/icons/message'
 import GitHub from '~/components/icons/github-no-fill'
 import Community from '~/components/icons/community'
+import CaseStudyCard from '~/components/docs/case-study-card'
 import CheckmarkInCircle from '~/components/icons/checkmark-in-circle'
 import DocsNavbarDesktop from '~/components/layout/navbar/desktop'
 import AutoComplete from '~/components/search'
@@ -159,7 +161,9 @@ function Landing() {
             <br className="desktop-only" /> at What They Do.
           </h2>
           <div className="case-study-cards">
-            <div className="case-study-card" />
+            <CaseStudyCard description="Fitt cut their cloud services costs by 96% while doubling their page load speeds.">
+              <Fitt />
+            </CaseStudyCard>
           </div>
         </section>
         <section className="support-section">
