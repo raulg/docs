@@ -74,7 +74,9 @@ class Header extends Component {
     query: '',
     searchState: {
       query: this.getSearchQ()
-    }
+    },
+    prevScrollPos: 0,
+    hideHeader: false
   }
 
   componentDidMount() {
@@ -90,6 +92,20 @@ class Header extends Component {
           : '.mobile_search input'
       ).focus()
     }
+
+    this.setState({ prevScrollPos: window.pageYOffset })
+    window.addEventListener('scroll', this.handleScroll)
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.handleScroll)
+  }
+
+  handleScroll = () => {
+    let { prevScrollPos } = this.state
+    let currentScrollPos = window.pageYOffset
+    let hideHeader = currentScrollPos > prevScrollPos
+    this.setState({ prevScrollPos: currentScrollPos, hideHeader })
   }
 
   onLogoRightClick = event => {
@@ -308,7 +324,7 @@ class Header extends Component {
       zenModeActive,
       isAmp
     } = this.props
-    const { menuActive } = this.state
+    const { menuActive, hideHeader } = this.state
     const dashboard = getDashboardHref(user, currentTeamSlug)
     const buildAmpNavClass = classes => {
       return isAmp
@@ -317,7 +333,7 @@ class Header extends Component {
     }
 
     return (
-      <LayoutHeader className="header">
+      <LayoutHeader hideHeader={hideHeader} className="header">
         {isAmp && (
           <amp-state id="header">
             <script
@@ -671,6 +687,11 @@ class Header extends Component {
               max-width: 242px;
               width: 70%;
             }
+          }
+        `}</style>
+        <style jsx>{`
+          :global(.header-hidden) {
+            top: -80px;
           }
         `}</style>
       </LayoutHeader>

@@ -11,6 +11,7 @@ import Message from '~/components/icons/message'
 import GitHub from '~/components/icons/github-no-fill'
 import Community from '~/components/icons/community'
 import CaseStudyCard from '~/components/docs/case-study-card'
+import CaseStudyList from '~/components/docs/case-study-list'
 import CheckmarkInCircle from '~/components/icons/checkmark-in-circle'
 import DocsNavbarDesktop from '~/components/layout/navbar/desktop'
 import AutoComplete from '~/components/search'
@@ -161,9 +162,27 @@ function Landing() {
             <br className="desktop-only" /> at What They Do.
           </h2>
           <div className="case-study-cards">
-            <CaseStudyCard
-              icon={Fitt}
-              description="Fitt cut their cloud services costs by 96% while doubling their page load speeds."
+            <CaseStudyList
+              caseStudies={[
+                {
+                  icon: Fitt,
+                  description:
+                    'Fitt cut their cloud services costs by 96% while doubling their page load speeds.',
+                  href: ''
+                },
+                {
+                  icon: Fitt,
+                  description:
+                    'Fitt cut their cloud services costs by 96% while doubling their page load speeds.',
+                  href: ''
+                },
+                {
+                  icon: Fitt,
+                  description:
+                    'Fitt cut their cloud services costs by 96% while doubling their page load speeds.',
+                  href: ''
+                }
+              ]}
             />
           </div>
         </section>

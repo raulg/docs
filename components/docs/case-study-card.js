@@ -18,9 +18,9 @@ function CaseStudyCard({ icon, description, href }) {
           height: 335px;
           border-radius: 4px;
           box-shadow: 0px 16px 48px rgba(0, 0, 0, 0.12);
-          position: absolute;
-          left: 50%;
           transform: translate(-50%);
+          position: relative;
+          margin: 0 20px;
         }
         .case-study-card-container :global(a) {
           cursor: pointer;
