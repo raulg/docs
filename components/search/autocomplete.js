@@ -301,6 +301,23 @@ class AutoComplete extends Component {
               left: 100px;
             }
           }
+
+          @media screen and (max-width: 350px) {
+            .react-autosuggest__input {
+              font-size: 16px;
+              width: 200px;
+            }
+
+            .react-autosuggest__suggestions-container--open {
+              left: 50%;
+              transform: translate(-50%);
+              width: 200px;
+            }
+
+            .search__search-icon svg {
+              left: 50px;
+            }
+          }
         `}</style>
       </span>
     )

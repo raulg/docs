@@ -330,7 +330,7 @@ class Header extends Component {
       zenModeActive,
       isAmp
     } = this.props
-    const { menuActive, hideHeader } = this.state
+    const { menuActive, hideHeader, hideHeaderSearch } = this.state
     const dashboard = getDashboardHref(user, currentTeamSlug)
     const buildAmpNavClass = classes => {
       return isAmp
@@ -361,7 +361,9 @@ class Header extends Component {
         </a>
 
         {/* might have to move search to page of it's own and use iframe to display it to make AMP happy */}
-        <span className="mobile_search">{this.renderSearch()}</span>
+        <span className={`mobile_search ${hideHeaderSearch ? 'hidden' : ''}`}>
+          {this.renderSearch()}
+        </span>
 
         <Navigation
           data-amp-bind-class={buildAmpNavClass('main-navigation')}
@@ -395,9 +397,7 @@ class Header extends Component {
                 API
               </NavigationItem>
               <span
-                className={`desktop_search ${
-                  this.state.hideHeaderSearch ? 'hidden' : ''
-                }`}
+                className={`desktop_search ${hideHeaderSearch ? 'hidden' : ''}`}
               >
                 {' '}
                 {this.renderSearch()}
@@ -623,6 +623,7 @@ class Header extends Component {
           .mobile_search {
             display: none;
           }
+
           .desktop_search {
             display: inline-block;
             opacity: 1;
@@ -698,6 +699,14 @@ class Header extends Component {
 
             .mobile_search {
               display: block;
+              opacity: 1;
+              visibility: visible;
+              transition: visibility 0s linear 0s, opacity 300ms;
+            }
+            .mobile_search.hidden {
+              visibility: hidden;
+              opacity: 0;
+              transition: visibility 0s linear 300ms, opacity 300ms;
             }
           }
           @media screen and (max-width: 360px) {
