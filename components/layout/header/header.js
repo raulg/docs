@@ -76,7 +76,8 @@ class Header extends Component {
       query: this.getSearchQ()
     },
     prevScrollPos: 0,
-    hideHeader: false
+    hideHeader: false,
+    hideHeaderSearch: true
   }
 
   componentDidMount() {
@@ -105,7 +106,12 @@ class Header extends Component {
     let { prevScrollPos } = this.state
     let currentScrollPos = window.pageYOffset
     let hideHeader = currentScrollPos > prevScrollPos
-    this.setState({ prevScrollPos: currentScrollPos, hideHeader })
+    let hideHeaderSearch = currentScrollPos < 132
+    this.setState({
+      prevScrollPos: currentScrollPos,
+      hideHeader,
+      hideHeaderSearch
+    })
   }
 
   onLogoRightClick = event => {
@@ -388,7 +394,14 @@ class Header extends Component {
               >
                 API
               </NavigationItem>
-              {/*<span className="desktop_search">{this.renderSearch()}</span>*/}
+              <span
+                className={`desktop_search ${
+                  this.state.hideHeaderSearch ? 'hidden' : ''
+                }`}
+              >
+                {' '}
+                {this.renderSearch()}
+              </span>
             </span>
           )}
         </Navigation>
@@ -612,6 +625,14 @@ class Header extends Component {
           }
           .desktop_search {
             display: inline-block;
+            opacity: 1;
+            visibility: visible;
+            transition: visibility 0s linear 0s, opacity 300ms;
+          }
+          .desktop_search.hidden {
+            visibility: hidden;
+            opacity: 0;
+            transition: visibility 0s linear 300ms, opacity 300ms;
           }
 
           :global(.amp-search) {
@@ -677,9 +698,6 @@ class Header extends Component {
 
             .mobile_search {
               display: block;
-            }
-            .desktop_search {
-              display: none;
             }
           }
           @media screen and (max-width: 360px) {
