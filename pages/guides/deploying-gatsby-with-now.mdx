@@ -14,7 +14,7 @@ export const meta = {
   authors: ['timothy'],
   url: '/guides/deploying-gatsby-with-now',
   editUrl: 'pages/guides/deploying-gatsby-with-now.mdx',
-  lastEdited: '2019-05-01T00:10:23.000Z'
+  lastEdited: '2019-06-19T22:44:34.000Z'
 }
 
 [Gatsby](https://www.gatsbyjs.org) is a popular front-end framework that helps you create static apps and websites with React.
@@ -76,6 +76,10 @@ First, you need to provide Now with instructions on how to build your Gatsby pro
 }
 ```
 
+<Caption>
+  An example <InlineCode>now.json</InlineCode> file for your Gatsby project.
+</Caption>
+
 This now.json file will allow your deployment to do several things, specifically:
 
 - Use the [latest Now 2.0 version](/docs/v2/platform/overview/#versioning) of the platform.
@@ -94,6 +98,11 @@ The @now/static-build Builder you added requires a script to be included in the 
 }
 ```
 
+<Caption>
+  Adding a <InlineCode>now build</InlineCode> script to your{' '}
+  <InlineCode>now.json</InlineCode> file.
+</Caption>
+
 And with configuration set up, you can now deploy your Gatsby project.
 
 If you have Now CLI on your system, you can deploy from your terminal with just one command:
@@ -108,7 +117,7 @@ When your app has been deployed, you will receive a URL similar to the following
 
 Caching is a key part of making your websites fast for users, new and returning. With this in mind, Now's routes configuration allows you to set up caching headers easily.
 
-The Gatsby documentation has [recommended cache control values](https://www.gatsbyjs.org/docs/caching/#caching) which we will use for our [routes configuration](/docs/v2/deployments/configuration/#routes).
+The Gatsby documentation has [recommended cache control values](https://www.gatsbyjs.org/docs/caching/#caching) which we will use for our [routes configuration](/docs/v2/deployments/configuration/#routes). Since Now will cache all static assets for one year without any configuration, we just need to tell the platform to avoid caching of HTML pages.
 
 In the `now.json` configuration file, add the following `routes` property:
 
@@ -116,9 +125,7 @@ In the `now.json` configuration file, add the following `routes` property:
 {
   ...
   "routes": [
-    {"src": "^/public/static/(.*)", "headers": {"cache-control": "public,max-age=31536000,immutable"} },
-    {"src": "^/(.*).(css|js)", "headers": {"cache-control": "public,max-age=31536000,immutable"} },
-    {"src": "^/(.*).html", "headers": {"cache-control": "public,max-age=0,must-revalidate"} }
+    {"src": "^/(.*).html", "headers": {"cache-control": "public,max-age=0,must-revalidate"}, "dest": "$1.html" }
   ]
 }
 ```
