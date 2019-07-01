@@ -15,6 +15,7 @@ import CaseStudyList from '~/components/docs/case-study-list'
 import CheckmarkInCircle from '~/components/icons/checkmark-in-circle'
 import DocsNavbarDesktop from '~/components/layout/navbar/desktop'
 import AutoComplete from '~/components/search'
+import { InternalLink } from '~/components/text/link'
 import Layout from '~/components/layout/layout'
 import Button from '~/components/buttons'
 import data from '~/lib/data/v2/docs'
@@ -95,7 +96,9 @@ function Landing() {
                 <h4>{data[4].name}</h4>
                 {data[4].posts.map(p => (
                   <Link href={p.href}>
-                    <p key={p.name}>{p.name}</p>
+                    <p key={p.name} className="link">
+                      {p.name}
+                    </p>
                   </Link>
                 ))}
               </div>
@@ -104,7 +107,9 @@ function Landing() {
                 <h4>{data[2].name}</h4>
                 {data[2].posts.map(p => (
                   <Link href={p.href}>
-                    <p key={p.name}>{p.name}</p>
+                    <p key={p.name} className="link">
+                      {p.name}
+                    </p>
                   </Link>
                 ))}
               </div>
@@ -113,7 +118,9 @@ function Landing() {
                 <h4>{data[5].name}</h4>
                 {data[5].posts.map(p => (
                   <Link href={p.href}>
-                    <p key={p.name}>{p.name}</p>
+                    <p className="link" key={p.name} className="link">
+                      {p.name}
+                    </p>
                   </Link>
                 ))}
               </div>
@@ -122,7 +129,9 @@ function Landing() {
                 <h4>{data[0].name}</h4>
                 {data[0].posts.map(p => (
                   <Link href={p.href}>
-                    <p key={p.name}>{p.name}</p>
+                    <p key={p.name} className="link">
+                      {p.name}
+                    </p>
                   </Link>
                 ))}
               </div>
@@ -131,7 +140,9 @@ function Landing() {
                 <h4>{data[1].name}</h4>
                 {data[1].posts.map(p => (
                   <Link href={p.href}>
-                    <p key={p.name}>{p.name}</p>
+                    <p key={p.name} className="link">
+                      {p.name}
+                    </p>
                   </Link>
                 ))}
               </div>
@@ -140,7 +151,9 @@ function Landing() {
                 <h4>{data[6].name}</h4>
                 {data[6].posts.map(p => (
                   <Link href={p.href}>
-                    <p key={p.name}>{p.name}</p>
+                    <p key={p.name} className="link">
+                      {p.name}
+                    </p>
                   </Link>
                 ))}
               </div>
@@ -150,7 +163,9 @@ function Landing() {
               <h4>{data[3].name}</h4>
               {data[3].posts.map(p => (
                 <Link href={p.href}>
-                  <p key={p.name}>{p.name}</p>
+                  <p key={p.name} className="link">
+                    {p.name}
+                  </p>
                 </Link>
               ))}
             </div>
@@ -263,7 +278,12 @@ function Landing() {
           justify-content: center;
           align-items: center;
           height: 335px;
-          background-color: rgba(250, 250, 250);
+          background: linear-gradient(
+            360deg,
+            #fafbfc 0%,
+            rgba(250, 251, 252, 0) 100%
+          );
+          border-bottom: 1px solid #eaeaea;
         }
         .hero-section h1 {
           font-size: 36px;
@@ -280,12 +300,19 @@ function Landing() {
           max-width: 1000px;
           margin: 100px auto;
         }
+        .docs-navigation-wrapper .link {
+          color: #444444;
+          cursor: pointer;
+        }
+        .docs-navigation-wrapper .link:hover {
+          color: #000000;
+        }
         .docs-navigation-wrapper > .navigation-left {
-          display: grid;
-          grid-template-columns: 1fr 1fr 1fr;
-          grid-template-rows: 1fr 1fr;
-          grid-column-gap: 100px;
-          margin-right: 100px;
+          display: flex;
+          flex-wrap: wrap;
+        }
+        .navigation-left > * {
+          margin-left: 60px;
         }
         .case-studies-section {
           margin-top: -150px;
@@ -312,7 +339,7 @@ function Landing() {
         }
         .support-section {
           display: flex;
-          justify-content: center;
+          justify-content: space-between;
           align-items: center;
           max-width: 1000px;
           margin: 0 auto;
@@ -332,7 +359,9 @@ function Landing() {
           flex-direction: column;
           justify-content: space-between;
           height: 200px;
-          margin-left: 100px;
+        }
+        .support-check-list h4 {
+          margin: 0;
         }
         .bullet-container {
           display: flex;
@@ -341,7 +370,7 @@ function Landing() {
         .support-check-list li {
           list-style: none;
           margin-left: -20px;
-          margin-bottom: 10px;
+          margin-bottom: 15px;
         }
         .support-check-list li:last-child {
           margin-bottom: 0;

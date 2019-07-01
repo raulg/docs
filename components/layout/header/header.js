@@ -330,7 +330,12 @@ class Header extends Component {
       zenModeActive,
       isAmp
     } = this.props
-    const { menuActive, hideHeader, hideHeaderSearch } = this.state
+    const {
+      menuActive,
+      hideHeader,
+      hideHeaderSearch,
+      prevScrollPos
+    } = this.state
     const dashboard = getDashboardHref(user, currentTeamSlug)
     const buildAmpNavClass = classes => {
       return isAmp
@@ -339,7 +344,11 @@ class Header extends Component {
     }
 
     return (
-      <LayoutHeader hideHeader={hideHeader} className="header">
+      <LayoutHeader
+        hideHeader={hideHeader}
+        prevScrollPos={prevScrollPos}
+        className="header"
+      >
         {isAmp && (
           <amp-state id="header">
             <script

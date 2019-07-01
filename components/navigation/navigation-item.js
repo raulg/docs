@@ -33,6 +33,7 @@ const NavigationItem = ({
       .navigation-item.active :global(a),
       .navigation-item :global(a:hover) {
         color: #000;
+        font-weight: 600;
         text-decoration: none;
       }
 
