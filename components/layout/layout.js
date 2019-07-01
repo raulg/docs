@@ -93,7 +93,11 @@ export default class Layout extends React.Component {
   }
 
   render() {
-    const { children } = this.props
+    const { children, dynamicSearch } = this.props
+
+    function HeaderWithDynamicSearch(props) {
+      return <Header dynamicSearch={dynamicSearch} {...props} />
+    }
 
     return (
       <Page>
@@ -103,7 +107,7 @@ export default class Layout extends React.Component {
               user={user}
               render={({ teams }) => (
                 <WrapForAmp
-                  comp={Header}
+                  comp={HeaderWithDynamicSearch}
                   onToggleNavigation={this.handleToggleNavigation}
                   user={user}
                   teams={teams}

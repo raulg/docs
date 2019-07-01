@@ -4,7 +4,7 @@ import { HEADER_HEIGHT } from '~/lib/constants'
 const Header = ({
   className,
   hideHeader,
-  isIndex,
+  dynamicSearch,
   prevScrollPos = 0,
   children
 }) => (
@@ -28,8 +28,10 @@ const Header = ({
     <style jsx>{`
       header {
         top: ${hideHeader ? '-80px' : '0'};
-        background: ${prevScrollPos < 256 && isIndex ? 'transparent' : '#fff'};
-        border-bottom: ${prevScrollPos < 256 && isIndex
+        background: ${prevScrollPos < 256 && dynamicSearch
+          ? 'transparent'
+          : '#fff'};
+        border-bottom: ${prevScrollPos < 256 && dynamicSearch
           ? ''
           : '1px solid #eaeaea'};
       }

@@ -56,7 +56,7 @@ function Landing() {
   const router = useRouter()
   const [searchState, setSearchState] = useState({})
   return (
-    <Layout>
+    <Layout dynamicSearch={true}>
       <main>
         <section className="hero-section">
           <h1>Docs</h1>

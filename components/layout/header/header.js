@@ -95,7 +95,8 @@ class Header extends Component {
     }
 
     this.setState({ prevScrollPos: window.pageYOffset })
-    if (this.props.router.pathname === '/docs/v2/landing') {
+
+    if (this.props.dynamicSearch) {
       window.addEventListener('scroll', this.handleScroll)
     }
   }
@@ -330,7 +331,8 @@ class Header extends Component {
       teams = [],
       userLoaded,
       zenModeActive,
-      isAmp
+      isAmp,
+      dynamicSearch
     } = this.props
     const {
       menuActive,
@@ -349,7 +351,7 @@ class Header extends Component {
       <LayoutHeader
         hideHeader={hideHeader}
         prevScrollPos={prevScrollPos}
-        isIndex={router.pathname === '/docs/v2/landing'}
+        dynamicSearch={dynamicSearch}
         className="header"
       >
         {isAmp && (
