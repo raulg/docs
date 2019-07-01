@@ -75,11 +75,6 @@ function Landing() {
               />
             </InstantSearch>
           </div>
-          <div className="get-started-cta">
-            <Button bgColor="#007aff" width="fit-content">
-              Get started with our quick introduction
-            </Button>
-          </div>
         </section>
         <section className="docs-navigation-section">
           <div className="docs-navigation-wrapper mobile-only">
@@ -90,85 +85,23 @@ function Landing() {
             />
           </div>
           <div className="docs-navigation-wrapper desktop-only">
-            <div className="navigation-left">
+            {data.map(d => (
               <div>
-                {/* Platform */}
-                <h4>{data[4].name}</h4>
-                {data[4].posts.map(p => (
+                <h4>{d.name}</h4>
+                {d.posts.map(p => (
                   <Link href={p.href}>
-                    <p key={p.name} className="link">
+                    <InternalLink
+                      key={p.name}
+                      display="block"
+                      color="#444444"
+                      hover="#000000"
+                    >
                       {p.name}
-                    </p>
+                    </InternalLink>
                   </Link>
                 ))}
               </div>
-              <div>
-                {/* Cloud Deployment */}
-                <h4>{data[2].name}</h4>
-                {data[2].posts.map(p => (
-                  <Link href={p.href}>
-                    <p key={p.name} className="link">
-                      {p.name}
-                    </p>
-                  </Link>
-                ))}
-              </div>
-              <div>
-                {/* Routing */}
-                <h4>{data[5].name}</h4>
-                {data[5].posts.map(p => (
-                  <Link href={p.href}>
-                    <p className="link" key={p.name} className="link">
-                      {p.name}
-                    </p>
-                  </Link>
-                ))}
-              </div>
-              <div>
-                {/* Getting Started */}
-                <h4>{data[0].name}</h4>
-                {data[0].posts.map(p => (
-                  <Link href={p.href}>
-                    <p key={p.name} className="link">
-                      {p.name}
-                    </p>
-                  </Link>
-                ))}
-              </div>
-              <div>
-                {/* Local Development */}
-                <h4>{data[1].name}</h4>
-                {data[1].posts.map(p => (
-                  <Link href={p.href}>
-                    <p key={p.name} className="link">
-                      {p.name}
-                    </p>
-                  </Link>
-                ))}
-              </div>
-              <div>
-                {/* Integrations */}
-                <h4>{data[6].name}</h4>
-                {data[6].posts.map(p => (
-                  <Link href={p.href}>
-                    <p key={p.name} className="link">
-                      {p.name}
-                    </p>
-                  </Link>
-                ))}
-              </div>
-            </div>
-            <div className="navigation-right">
-              {/* Domains and Aliases */}
-              <h4>{data[3].name}</h4>
-              {data[3].posts.map(p => (
-                <Link href={p.href}>
-                  <p key={p.name} className="link">
-                    {p.name}
-                  </p>
-                </Link>
-              ))}
-            </div>
+            ))}
           </div>
         </section>
         <section className="case-studies-section">
