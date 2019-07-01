@@ -81,6 +81,7 @@ class Header extends Component {
   }
 
   componentDidMount() {
+    console.log(this.props.router.pathname)
     const {
       searchState: { query }
     } = this.state
@@ -95,7 +96,9 @@ class Header extends Component {
     }
 
     this.setState({ prevScrollPos: window.pageYOffset })
-    window.addEventListener('scroll', this.handleScroll)
+    if (this.props.router.pathname === '/docs/v2/landing') {
+      window.addEventListener('scroll', this.handleScroll)
+    }
   }
 
   componentWillUnmount() {
@@ -347,6 +350,7 @@ class Header extends Component {
       <LayoutHeader
         hideHeader={hideHeader}
         prevScrollPos={prevScrollPos}
+        isIndex={router.pathname === '/docs/v2/landing'}
         className="header"
       >
         {isAmp && (

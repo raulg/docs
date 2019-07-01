@@ -1,7 +1,13 @@
 import Wrapper from '../wrapper'
 import { HEADER_HEIGHT } from '~/lib/constants'
 
-const Header = ({ className, hideHeader, prevScrollPos = 0, children }) => (
+const Header = ({
+  className,
+  hideHeader,
+  isIndex,
+  prevScrollPos = 0,
+  children
+}) => (
   <header className={className}>
     <Wrapper className="content">{children}</Wrapper>
     <style jsx>{`
@@ -22,8 +28,10 @@ const Header = ({ className, hideHeader, prevScrollPos = 0, children }) => (
     <style jsx>{`
       header {
         top: ${hideHeader ? '-80px' : '0'};
-        background: ${prevScrollPos < 256 ? 'transparent' : '#fff'};
-        border-bottom: ${prevScrollPos < 256 ? '' : '1px solid #eaeaea'};
+        background: ${prevScrollPos < 256 && isIndex ? 'transparent' : '#fff'};
+        border-bottom: ${prevScrollPos < 256 && isIndex
+          ? ''
+          : '1px solid #eaeaea'};
       }
     `}</style>
   </header>
