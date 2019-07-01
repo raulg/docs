@@ -16,6 +16,7 @@ import CheckmarkInCircle from '~/components/icons/checkmark-in-circle'
 import DocsNavbarDesktop from '~/components/layout/navbar/desktop'
 import AutoComplete from '~/components/search'
 import { InternalLink } from '~/components/text/link'
+import Footer from '~/components/footer'
 import Layout from '~/components/layout/layout'
 import Button from '~/components/buttons'
 import data from '~/lib/data/v2/docs'
@@ -202,7 +203,9 @@ function Landing() {
             </p>
           </div>
         </section>
+        <Footer />
       </main>
+
       <style jsx>{`
         .hero-section {
           position: relative;
