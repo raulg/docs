@@ -81,7 +81,6 @@ class Header extends Component {
   }
 
   componentDidMount() {
-    console.log(this.props.router.pathname)
     const {
       searchState: { query }
     } = this.state
