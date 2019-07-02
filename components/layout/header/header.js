@@ -17,6 +17,7 @@ import Logo from '~/components/icons/logo'
 import Plus from '~/components/icons/plus'
 import { HeaderFeedback } from '~/components/feedback-input'
 import { API_DOCS_FEEDBACK } from '~/lib/constants'
+import MenuPopOver from '~/components/layout/header/menu-popover'
 
 function AmpUserFeedback() {
   const isAmp = useAmp()
@@ -408,7 +409,14 @@ class Header extends Component {
                 active={router.pathname.startsWith('/docs/api')}
                 onClick={handleIndexClick}
               >
-                API
+                <MenuPopOver
+                  title="API"
+                  primaryList={[
+                    { title: 'Platform API', url: '/' },
+                    { title: 'Integrations API', url: '/' },
+                    { title: 'Builders API', url: '/' }
+                  ]}
+                />
               </NavigationItem>
               <span
                 className={`desktop_search ${hideHeaderSearch ? 'hidden' : ''}`}
