@@ -161,7 +161,7 @@ export const Item = ({
           margin-left: 8px;
         }
         .item :global(svg.label path) {
-          stroke: none !important;
+          stroke: none;
         }
         .item :global(path:not(.no-fill):not(.label)) {
           fill: var(--accents-5);

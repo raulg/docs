@@ -203,10 +203,10 @@ export class MenuPopOver extends Component {
           }
           span.is-inverse:hover :global(svg),
           span.is-active.is-inverse :global(.wrap .link .arrow) {
-            fill: #fff !important;
+            fill: #fff;
           }
           .highlight {
-            color: #ff0080 !important;
+            color: #ff0080;
           }
           a {
             font-size: 14px;
